@@ -9,21 +9,22 @@ A playful Python-based "screensaver" that randomly moves your mouse and simulate
 - Keeps your system from going idle.
 - Lightweight and easy to use.
 
-## Installation
+## Usage
 
-You can install `snsr` using `pip` or `uv` once it’s published to PyPI:
+### Using `uv`
+
+If you're using `uv`, you can run the `snsr` command directly without needing to activate a virtual environment first. Just use `uvx`:
+
+```bash
+uvx snsr
+```
+
+### Using pip
+
+You can install `snsr` using `pip`:
 
 ```bash
 pip install snsr
-# or
-uv pip install snsr
-````
-
-## Usage
-
-Once installed, run the screensaver from any terminal with:
-
-```bash
 snsr
 ```
 
@@ -36,11 +37,6 @@ It will:
 ### To Stop
 
 Press `Ctrl+C` in the terminal to exit.
-
-## Requirements
-
-* Python 3.7+
-* [`pyautogui`](https://pypi.org/project/pyautogui/)
 
 ## Notes
 
