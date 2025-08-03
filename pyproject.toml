@@ -4,7 +4,7 @@ version = "0.1.4"
 description = "A simple random movement screensaver."
 readme = "README.md"
 license = {text = "MIT"}
-authors = [{ name = "Ichsanul Amal" }]
+authors = [{ name = "nichsedge" }]
 requires-python = ">=3.7"
 dependencies = [
     "pyautogui>=0.9.54",
@@ -14,4 +14,4 @@ dependencies = [
 snsr = "main:run_screensaver"
 
 [project.urls]
-Homepage = "https://github.com/ichsanulamal/snsr"
+Homepage = "https://github.com/nichsedge/snsr"
