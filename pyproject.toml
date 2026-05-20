@@ -5,7 +5,7 @@ description = "A simple random movement screensaver."
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "nichsedge" }]
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 dependencies = [
     "pyautogui>=0.9.54",
     "pynput>=1.7.6",
@@ -14,8 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-snsr = "snsr_cli:run_screensaver"
-snsr-ubuntu = "main_ubuntu:run_screensaver"
+snsr = "snsr.cli:run_screensaver"
 
 [project.urls]
 Homepage = "https://github.com/nichsedge/snsr"
@@ -25,4 +24,4 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-py-modules = ["main", "main_ubuntu", "snsr_cli"]
+packages = ["snsr"]

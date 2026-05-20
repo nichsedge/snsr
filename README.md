@@ -6,24 +6,20 @@ A playful Python-based "screensaver" that randomly moves your mouse and simulate
 
 - Moves the mouse to random screen positions.
 - Simulates random key presses.
-- Keeps your system from going idle.
-- Lightweight and easy to use.
+- Keeps your system from going idle (uses `wakepy` when available).
+- Auto-selects an input backend per platform (`pynput` on Linux, `pyautogui` elsewhere) with fallback.
 
 ## Usage
 
 ### Using `uv`
 
-If you're using `uv`, you can run the `snsr` command directly without needing to activate a virtual environment first. Just use `uvx`:
-
 ```bash
 uvx snsr
-
-`snsr` now auto-detects your platform/session and selects the best backend automatically (Linux uses the Ubuntu/Linux-safe backend by default, with fallback logic if needed).
 ```
 
-### Using pip
+`snsr` auto-detects your platform/session and picks the best backend (Linux defaults to the `pynput` backend; macOS and Windows use `pyautogui`), with fallback if the preferred backend fails to start.
 
-You can install `snsr` using `pip`:
+### Using pip
 
 ```bash
 pip install snsr
@@ -32,13 +28,29 @@ snsr
 
 It will:
 
-* Move your mouse to random points on the screen
-* Press a random key (`a`, `s`, `d`, `f`, `j`, `k`, `l`)
-* Repeat this process every few seconds
+* Move your mouse to random points (or jiggle relative on Linux)
+* Press a random key (default set: `a`, `s`, `d`, `f`, `j`, `k`, `l`)
+* Repeat every few seconds
+
+### Options
+
+```
+snsr [--interval LOW HIGH] [--keys CHARS] [--backend {auto,pyautogui,pynput}]
+     [--no-failsafe] [--dry-run] [-v]
+```
+
+* `--interval LOW HIGH` — random sleep range in seconds between actions (default `1 5`).
+* `--keys CHARS` — string of single-character keys to choose from (default `asdfjkl`).
+* `--backend` — force a specific backend, or leave on `auto`.
+* `--no-failsafe` — disable pyautogui's corner-abort failsafe (off by default — moving the mouse to a screen corner aborts).
+* `--dry-run` — log what would happen without actually moving the mouse or pressing keys.
+* `-v`, `--verbose` — debug logging.
+
+Logs are written to a per-platform user state directory (e.g. `~/.local/state/snsr/snsr.log` on Linux, `%LOCALAPPDATA%\snsr\snsr.log` on Windows, `~/Library/Logs/snsr/snsr.log` on macOS).
 
 ### To Stop
 
-Press `Ctrl+C` in the terminal to exit.
+Press `Ctrl+C` in the terminal to exit. By default the pyautogui backend also lets you abort by slamming the mouse into a screen corner.
 
 ## Notes
 
