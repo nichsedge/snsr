@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-snsr = "main:run_screensaver"
+snsr = "snsr_cli:run_screensaver"
 snsr-ubuntu = "main_ubuntu:run_screensaver"
 
 [project.urls]
@@ -25,4 +25,4 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-py-modules = ["main", "main_ubuntu"]
+py-modules = ["main", "main_ubuntu", "snsr_cli"]

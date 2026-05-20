@@ -17,6 +17,8 @@ If you're using `uv`, you can run the `snsr` command directly without needing to
 
 ```bash
 uvx snsr
+
+`snsr` now auto-detects your platform/session and selects the best backend automatically (Linux uses the Ubuntu/Linux-safe backend by default, with fallback logic if needed).
 ```
 
 ### Using pip
