@@ -1066,8 +1066,8 @@ wheels = [
 
 [[package]]
 name = "snsr"
-version = "0.1.5"
-source = { virtual = "." }
+version = "0.1.7"
+source = { editable = "." }
 dependencies = [
     { name = "jeepney" },
     { name = "pyautogui" },
